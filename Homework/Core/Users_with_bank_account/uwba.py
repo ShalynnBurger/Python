@@ -10,6 +10,10 @@ class BankAccount:
         return self
 
     def withdraw(self, amount):
+        if self.balance - amount < 0:
+            print("Insufficient funds: Charging a $5 fee")
+            self.balance -= 5
+            return self
         self.balance -= amount
         return self
 
@@ -21,11 +25,12 @@ class BankAccount:
         self.balance += (self.balance * self.int_rate)
         return self
 
+
 class User: 
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account = BankAccount(int_rate=0.02, balance=0)
+        self.account = BankAccount(0.02, 0)
 
     def make_deposit(self, amount):
         self.account.deposite(amount)
@@ -42,7 +47,7 @@ class User:
 
 shay = User('Shalynn', 'snburger@gmail.com')
 
-shay.make_deposit(200).make_withdraw(30).display_user_balance()
+shay.make_deposit(200).make_withdraw(250).display_user_balance()
 
 
 
