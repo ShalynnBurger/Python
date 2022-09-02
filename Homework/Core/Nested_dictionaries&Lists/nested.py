@@ -1,36 +1,37 @@
-# print("sanity check")
+print("sanity check")
+print("=================================")
 
-# x = [ [5,2,3], [10,8,9] ] 
-# students = [
-#      {'first_name':  'Michael', 'last_name' : 'Jordan'},
-#      {'first_name' : 'John', 'last_name' : 'Rosales'}
-# ]
-# sports_directory = {
-#     'basketball' : ['Kobe', 'Jordan', 'James', 'Curry'],
-#     'soccer' : ['Messi', 'Ronaldo', 'Rooney']
-# }
-# z = [ {'x': 10, 'y': 20} ]
+x = [ [5,2,3], [10,8,9] ] 
+students = [
+     {'first_name':  'Michael', 'last_name' : 'Jordan'},
+     {'first_name' : 'John', 'last_name' : 'Rosales'}
+]
+sports_directory = {
+    'basketball' : ['Kobe', 'Jordan', 'James', 'Curry'],
+    'soccer' : ['Messi', 'Ronaldo', 'Rooney']
+}
+z = [ {'x': 10, 'y': 20} ]
 
 
-# x[1][0] = 15 
-# print(x)
+x[1][0] = 15 
+print(x)
 
-# print("=================================")
+print("=================================")
 
-# students[0]['last_name'] = 'Bryant'
-# print(students[0])
+students[0]['last_name'] = 'Bryant'
+print(students[0])
 
-# print("=================================")
+print("=================================")
 
-# sports_directory['soccer'][0] = 'Andres'
-# print(sports_directory['soccer'])
+sports_directory['soccer'][0] = 'Andres'
+print(sports_directory['soccer'])
 
-# print("=================================")
+print("=================================")
 
-# z[0]['y'] = 30
-# print(z)
+z[0]['y'] = 30
+print(z)
 
-# print("=================================")
+print("=================================")
 
 students = [
          {'first_name':  'Michael', 'last_name' : 'Jordan'},
@@ -41,11 +42,35 @@ students = [
 # for name in students:
 #     print("first_name - " +name['first_name'], "last_name - " + name['last_name'])
 
-# print("=================================")
+
+def iterateDictionary(students):
+    for i in range(len(students)):
+        output = ""
+        if len(students)-1==i-1:
+            for key, value in students[i].items():
+                output+=f"{key} - {value}"
+                break
+        for key, value in students[i].items():
+            output+=f"{key} - {value}, "
+       
+        print(output) 
+
+iterateDictionary(students)
+print("=================================")
 
 # for name in students:
 #     print(name['first_name'])
 #     print(name['last_name'])
+
+def iterateDictionary2(key_name, some_list):
+    for i in range(len(some_list)):
+        print(some_list[i][key_name])
+ 
+
+iterateDictionary2('first_name', students)
+iterateDictionary2('last_name', students)
+
+
 
 
 print("=================================")
@@ -56,7 +81,13 @@ dojo = {
 }
 
 def printInfo(dojo):
-    for item in dojo():
-        print(f'{len('locations')} {key.upper()}')
-        for i in range(0,len(val)):
-            print(val[i])
+    # print(f'{len(dojo)}')
+    # for i in range(0,len(arr[])):
+        
+    #     print(arr[i])
+    for key,value in dojo.items():
+        print(len(value), key.upper())
+        for i in range(0, len(value)):
+            print(value[i])
+
+printInfo(dojo)
