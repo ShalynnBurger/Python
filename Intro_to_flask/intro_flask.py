@@ -15,13 +15,33 @@ def success():
     return "success"
 
 
-@app.route('/say/<word>')
-def say_word(word):
-    return f"the word you gave me is: {word}"
+@app.route('/say/<word>/<int:number>')
+def say_word(word, number):
+    return render_template("say.html", word=word, number=number)
+
 
 @app.route("/template")
 def template():
-    return render_template("index.html")
+    new_variable = "this is a test string"
+    return render_template("index.html", name_of_variable_on_template = new_variable)
+
+@app.route("/iterate")
+def iterate():
+    cats = [   
+        {
+            'name': 'Garfield',
+            'color' : 'orange'
+        },
+        {
+            'name': 'Scar',
+            'color' : 'dark brown'
+        },
+        {
+            'name': 'Felix',
+            'color' : 'black'
+        },
+    ]
+    return render_template("cats.html", cats=cats)
 
 
 #AWAYS AT THE BOTTOM

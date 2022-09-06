@@ -8,5 +8,13 @@
 </head>
 <body>
     <h1>Hello! Welcome to rendering templates!</h1>
+    <h2>{{name_of_variable_on_template}}</h2>
+    {%for i in range(5)%}
+        <p>{{i}}</p>
+        {% if i == 3 %}
+        <p>This should appear below the number 3</p>
+        {% endif %}
+    {%endfor%}
+    
 </body>
 </html>
