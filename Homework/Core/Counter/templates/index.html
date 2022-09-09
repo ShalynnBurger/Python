@@ -5,16 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Index Page</h1>
-<h3>Create a User</h3>
-<form action='/users' method='post'>
-    <label for='name'>Name:</label>
-    <input type='text' name='name'>
-    <label for='email'>Email:</label>
-    <input type='text' name='email'>
-    <input type='submit' value='create user'>
-</form>
+    <div>
+        <h1>Counter</h1>
+    </div>
+    <div>
+        <!-- number will change with each time page is visited -->
+        <p>This site has been visited 5 times</p>  
+    </div>
+    <form action="/process_form" method="post">
+          <!-- increase count button -->
+          <button name="increase_count">Click</button>
+          <!-- reset to 0 button  -->
+          <button name="reset_count">Reset</button>
+    </form>
 </body>
 </html>

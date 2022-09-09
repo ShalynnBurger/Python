@@ -1,19 +1,21 @@
 # print("sanity check")
 
-from flask import Flask, render_template, request,redirect
+from flask import Flask, render_template, request,redirect, session
 app = Flask(__name__)
+app.secret_key = "secret key"
 
 
 
 @app.route('/')
-def index():
+def render_form():
     return render_template("index.html")
 
-@app.route('/users', methods=['POST'])
-def create_user():
-    print("Go post info")
+@app.route('/process_form', methods=['POST'])
+def process_form():
     print(request.form)
-    return redirect('/')
+
+    return redirect("/")
+
 
 
 
