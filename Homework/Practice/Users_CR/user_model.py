@@ -18,8 +18,7 @@ class User:
         print("======================")
         all_users = []
         for row_from_db in results:
-            user_instance = cls(row_from_db)
-            all_users.append(user_instance)
+            all_users.append(cls(row_from_db))
         return all_users
 
     @classmethod
@@ -27,3 +26,22 @@ class User:
         query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result 
+
+    @classmethod
+    def get_one(cls, data):
+        query = "SELECT * FROM users WHERE id=%(id)s;"
+        results = connectToMySQL(DATABASE).query_db(query, data)
+        if len(results) > 0:
+            user_instance = cls(results[0])
+            return user_instance
+        return False
+
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE users SET first_name = %(first_name)s, last_name =  %(last_name)s, email = %(email)s WHERE id = %(id)s;"
+        return connectToMySQL(DATABASE).query_db(query, data)
+
+    @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s;"
+        return connectToMySQL(DATABASE).query_db(query, data)
