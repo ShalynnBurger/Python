@@ -26,3 +26,4 @@ SELECT * FROM ninjas WHERE dojo_id = 4;
 SELECT name FROM dojos WHERE dojo_id = 6;
 
 SELECT dojo_id FROM ninjas WHERE id=12; 
+SELECT * FROM dojos
