@@ -12,5 +12,16 @@
     <p>Breed: {{one_dog.breed}}</p>
     <p>Color: {{one_dog.color}}</p>
     <p>Age: {{one_dog.age}}</p>
+
+    <h2>Awards {{one_dog.name}} has:</h2>
+    {% if one_dog.award_list[0].id == None %}
+    <p>Hasn't won any yet :( </p>
+    {%else%}
+    {% for award in one_dog.award_list%}
+    <ul>
+        <li>{{award.title}}</li>
+    </ul>
+    {%endfor%}
+    {%endif%}
 </body>
 </html>
