@@ -13,6 +13,8 @@ def new_recipe_form():
 def process_recipe():
     if 'user_id' not in session:
         return redirect('/')
+    if not Recipe.validator(request.form):
+        return redirect('/')
     data = {
         **request.form,
         'user_id': session['user_id']

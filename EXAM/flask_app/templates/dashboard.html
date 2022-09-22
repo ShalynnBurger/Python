@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            {% for message in get_flashed_messages() %}
+            <p class="text-danger">{{message}}</p>
+            {% endfor %}
+            <h1>Welcome to Car Dealz, {{logged_user.first_name}}</h1>
+            <div>
+                <a href="/users/logout" class="btn btn-primary">Logout</a>
+            </div>
+        </div>
+        <h2>Cars for Sale</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Seller</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in all_cars %}
+                <tr>
+                    <td>{{car.model}}</td>
+                    <td>{{car.year}}</td>
+                    <td>{{car.seller.first_name}} {{car.seller.last_name}}</td>
+                    <td>
+                        <a href="/car/{{car.id}}">view</a>
+                        {% if session['user_id'] == car.user_id %}
+                        <a href="/edit/{{car.id}}/car">edit</a>
+                        <a href="/delete/{{car.id}}/car">delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/new/car" class="btn btn-primary">Add a car</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View One car</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container p-5">
+        <div>
+            <div>
+                <a href="/welcome" class="btn btn-primary">Dashboard</a>
+                <a href="/users/logout" class="btn btn-primary">Logout</a>
+            </div>
+        </div>
+        <div >
+            <div>
+                <h4>{{car.price}}</h4>
+                <p>Model: {{car.model}}</p>
+                <p>Make: {{car.make}}</p>
+                <p>Description: {{car.description}}</p>
+                <p>Seller: {{car.seller.first_name}} {{car.seller.last_name}}</p>
+                <a href="/delete/{{car.id}}/car" class="btn btn-primary">Purchace</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
